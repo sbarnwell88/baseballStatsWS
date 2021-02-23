@@ -4,6 +4,15 @@ public class PitchMetricsObject {
 
     private PitchMetricsDto pitch_metrics;
     private PitchingDto pitching;
+    private HittingDto hitting;
+
+    public HittingDto getHitting() {
+        return hitting;
+    }
+
+    public void setHitting(HittingDto hitting) {
+        this.hitting = hitting;
+    }
 
     public PitchingDto getPitching() {
         return pitching;

@@ -8,18 +8,18 @@ public class PitcherDataDto {
     private String name;
     private List<PitchTypeDto> pitchTypes;
     private List<HitterHandSplits> hitterHand;
-    private List<MonthSplitsDto> homeAway;
+    private List<MonthSplitsPitchingDto> homeAway;
     private List<OpponentSplitsDto> opponentStats;
     private String opponentName;
     private List<LastStartSplitsDto> lastStarts;
     private OverallPitchingDto overallStats;
-    private List<MonthSplitsDto> months;
+    private List<MonthSplitsPitchingDto> months;
 
-    public List<MonthSplitsDto> getMonths() {
+    public List<MonthSplitsPitchingDto> getMonths() {
         return months;
     }
 
-    public void setMonths(List<MonthSplitsDto> months) {
+    public void setMonths(List<MonthSplitsPitchingDto> months) {
         this.months = months;
     }
 
@@ -55,11 +55,11 @@ public class PitcherDataDto {
         this.opponentStats = opponentStats;
     }
 
-    public List<MonthSplitsDto> getHomeAway() {
+    public List<MonthSplitsPitchingDto> getHomeAway() {
         return homeAway;
     }
 
-    public void setHomeAway(List<MonthSplitsDto> homeAway) {
+    public void setHomeAway(List<MonthSplitsPitchingDto> homeAway) {
         this.homeAway = homeAway;
     }
 

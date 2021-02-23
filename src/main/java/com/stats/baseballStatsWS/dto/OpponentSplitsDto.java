@@ -22,10 +22,118 @@ public class OpponentSplitsDto {
     private int bb;
     private int ibb;
     private float oba;
-    private float era;
+    private String era;
     private int ktotal;
     private int team_win;
     private int team_loss;
+    private int ab;
+    private int s;
+    private int d;
+    private int t;
+    private int rbi;
+    private int hbp;
+    private int sb;
+    private int cs;
+    private float obp;
+    private float slg;
+    private float ops;
+    private String avg;
+
+    public int getAb() {
+        return ab;
+    }
+
+    public void setAb(int ab) {
+        this.ab = ab;
+    }
+
+    public int getS() {
+        return s;
+    }
+
+    public void setS(int s) {
+        this.s = s;
+    }
+
+    public int getD() {
+        return d;
+    }
+
+    public void setD(int d) {
+        this.d = d;
+    }
+
+    public int getT() {
+        return t;
+    }
+
+    public void setT(int t) {
+        this.t = t;
+    }
+
+    public int getRbi() {
+        return rbi;
+    }
+
+    public void setRbi(int rbi) {
+        this.rbi = rbi;
+    }
+
+    public int getHbp() {
+        return hbp;
+    }
+
+    public void setHbp(int hbp) {
+        this.hbp = hbp;
+    }
+
+    public int getSb() {
+        return sb;
+    }
+
+    public void setSb(int sb) {
+        this.sb = sb;
+    }
+
+    public int getCs() {
+        return cs;
+    }
+
+    public void setCs(int cs) {
+        this.cs = cs;
+    }
+
+    public float getObp() {
+        return obp;
+    }
+
+    public void setObp(float obp) {
+        this.obp = obp;
+    }
+
+    public float getSlg() {
+        return slg;
+    }
+
+    public void setSlg(float slg) {
+        this.slg = slg;
+    }
+
+    public float getOps() {
+        return ops;
+    }
+
+    public void setOps(float ops) {
+        this.ops = ops;
+    }
+
+    public String getAvg() {
+        return avg;
+    }
+
+    public void setAvg(String avg) {
+        this.avg = avg;
+    }
 
     public String getId() {
         return id;
@@ -187,11 +295,11 @@ public class OpponentSplitsDto {
         this.oba = oba;
     }
 
-    public float getEra() {
+    public String getEra() {
         return era;
     }
 
-    public void setEra(float era) {
+    public void setEra(String era) {
         this.era = era;
     }
 

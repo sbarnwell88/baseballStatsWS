@@ -5,8 +5,8 @@ import java.util.List;
 public class TotalSplitPitching {
 
     private List<SplitsPitchingDto> total;
-    private List<MonthSplitsDto> month;
-    private List<MonthSplitsDto> home_away;
+    private List<MonthSplitsPitchingDto> month;
+    private List<MonthSplitsPitchingDto> home_away;
     private List<HitterHandSplits> hitter_hand;
     private List<OpponentSplitsDto> opponent;
     private List<LastStartSplitsDto> last_start;
@@ -44,19 +44,19 @@ public class TotalSplitPitching {
         this.hitter_hand = hitter_hand;
     }
 
-    public List<MonthSplitsDto> getHome_away() {
+    public List<MonthSplitsPitchingDto> getHome_away() {
         return home_away;
     }
 
-    public void setHome_away(List<MonthSplitsDto> home_away) {
+    public void setHome_away(List<MonthSplitsPitchingDto> home_away) {
         this.home_away = home_away;
     }
 
-    public List<MonthSplitsDto> getMonth() {
+    public List<MonthSplitsPitchingDto> getMonth() {
         return month;
     }
 
-    public void setMonth(List<MonthSplitsDto> month) {
+    public void setMonth(List<MonthSplitsPitchingDto> month) {
         this.month = month;
     }
 

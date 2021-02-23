@@ -15,6 +15,15 @@ public class OnbaseDto {
     private int roe;
     private float h9;
     private float hr9;
+    private int cycle;
+
+    public int getCycle() {
+        return cycle;
+    }
+
+    public void setCycle(int cycle) {
+        this.cycle = cycle;
+    }
 
     public int getTb() {
         return tb;

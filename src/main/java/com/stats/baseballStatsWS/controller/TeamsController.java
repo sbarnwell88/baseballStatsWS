@@ -35,8 +35,8 @@ public class TeamsController {
         String url = SPORT_RADAR_URL + "games/2019/REG/schedule.json?api_key="
                 + System.getenv("API_KEY");
 
-//        LeagueScheduleDto leagueScheduleDtos = teamsService.getLeagueSchedule(url);
-        LeagueScheduleDto leagueScheduleDtos = teamsFileService.getLeagueSchedule();
+        LeagueScheduleDto leagueScheduleDtos = teamsService.getLeagueSchedule(url);
+//        LeagueScheduleDto leagueScheduleDtos = teamsFileService.getLeagueSchedule();
 
         return ResponseEntity.ok().body(leagueScheduleDtos);
     }
@@ -46,8 +46,8 @@ public class TeamsController {
         String url = SPORT_RADAR_URL + "teams/" + teamId + "/profile.json?api_key="
                 + System.getenv("API_KEY");
 
-//        List<PlayerDto> players = teamsService.getTeamRoster(url, position);
-        List<PlayerDto> players = teamsFileService.getTeamRoster(position);
+        List<PlayerDto> players = teamsService.getTeamRoster(url, position);
+//        List<PlayerDto> players = teamsFileService.getTeamRoster(position);
 
         return ResponseEntity.ok().body(players);
     }

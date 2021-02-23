@@ -1,6 +1,6 @@
 package com.stats.baseballStatsWS.dto;
 
-public class MonthSplitsDto {
+public class MonthSplitsPitchingDto {
 
     private String value;
     private int win;

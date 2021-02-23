@@ -5,6 +5,15 @@ public class StealDto {
     private int caught;
     private int stolen;
     private int pickoff;
+    private float pct;
+
+    public float getPct() {
+        return pct;
+    }
+
+    public void setPct(float pct) {
+        this.pct = pct;
+    }
 
     public int getCaught() {
         return caught;

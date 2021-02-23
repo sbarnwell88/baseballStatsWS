@@ -26,7 +26,7 @@ public class TeamsFileService {
 
         BufferedReader br = new BufferedReader(new FileReader("/Users/susanabarnwell/Documents/baseballStatsWS/dodgers.json"));
         TeamDto team = new Gson().fromJson(br, TeamDto.class);
-        List<PlayerDto> playersInPosition;
+        List<PlayerDto> playersInPosition = null;
 
         if (position.equals("P") && team != null && team.getPlayers() != null) {
             playersInPosition = team.getPlayers()
@@ -34,10 +34,12 @@ public class TeamsFileService {
                     .filter(player -> player.getPosition().equals(position))
                     .collect(Collectors.toList());
         } else {
-            playersInPosition = team.getPlayers()
-                    .stream()
-                    .filter(player -> !player.getPosition().equals(position))
-                    .collect(Collectors.toList());
+            if (team != null && team.getPlayers() != null) {
+                playersInPosition = team.getPlayers()
+                        .stream()
+                        .filter(player -> !player.getPosition().equals("P"))
+                        .collect(Collectors.toList());
+            }
         }
         return playersInPosition;
     }
