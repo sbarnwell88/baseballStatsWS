@@ -38,12 +38,21 @@ public class HitterDataDto {
     private int strikesSwinging;
     private int strikeoutsSwinging;
     private int walks;
+    private int intentionalWalks;
     private float walksPerPlateAppearance;
     private int atBats;
     private int hits;
     private int doubles;
     private int triples;
     private String linkForBrooksBaseball;
+
+    public int getIntentionalWalks() {
+        return intentionalWalks;
+    }
+
+    public void setIntentionalWalks(int intentionalWalks) {
+        this.intentionalWalks = intentionalWalks;
+    }
 
     public String getLinkForBrooksBaseball() {
         return linkForBrooksBaseball;

@@ -21,18 +21,18 @@ public class TeamsService {
     private RestTemplate restTemplate;
 
     public LeagueScheduleDto getLeagueSchedule(String url) throws FileNotFoundException {
-        BufferedReader br = new BufferedReader(new FileReader("/Users/susanabarnwell/Documents/baseballStatsWS/leagueSchedule.json"));
-        return new Gson().fromJson(br, LeagueScheduleDto.class);
+//        BufferedReader br = new BufferedReader(new FileReader("/Users/susanabarnwell/Documents/baseballStatsWS/leagueSchedule.json"));
+//        return new Gson().fromJson(br, LeagueScheduleDto.class);
 
-//        return restTemplate.getForObject(url, LeagueScheduleDto.class);
+        return restTemplate.getForObject(url, LeagueScheduleDto.class);
     }
 
     public List<PlayerDto> getTeamRoster(String url, String position) throws FileNotFoundException {
-        List<PlayerDto> playersInPosition;
+        List<PlayerDto> playersInPosition = null;
 
-        BufferedReader br = new BufferedReader(new FileReader("/Users/susanabarnwell/Documents/baseballStatsWS/dodgers.json"));
-        TeamDto team = new Gson().fromJson(br, TeamDto.class);
-//        TeamDto team = restTemplate.getForObject(url, TeamDto.class);
+//        BufferedReader br = new BufferedReader(new FileReader("/Users/susanabarnwell/Documents/baseballStatsWS/dodgers.json"));
+//        TeamDto team = new Gson().fromJson(br, TeamDto.class);
+        TeamDto team = restTemplate.getForObject(url, TeamDto.class);
 
         if (position.equals("P") && team != null && team.getPlayers() != null) {
             playersInPosition = team.getPlayers()
@@ -40,10 +40,12 @@ public class TeamsService {
                     .filter(player -> player.getPosition().equals(position))
                     .collect(Collectors.toList());
         } else {
-            playersInPosition = team.getPlayers()
-                    .stream()
-                    .filter(player -> !player.getPosition().equals("P"))
-                    .collect(Collectors.toList());
+            if (team != null && team.getPlayers() != null) {
+                playersInPosition = team.getPlayers()
+                        .stream()
+                        .filter(player -> !player.getPosition().equals("P"))
+                        .collect(Collectors.toList());
+            }
         }
         return playersInPosition;
     }

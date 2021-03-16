@@ -22,25 +22,25 @@ public class PlayerService {
     private RestTemplate restTemplate;
 
     public PitcherDataDto getPitcherData(String pitchMetricsUrl, String profileUrl, String year, String mlbSeason, String opponentId) throws FileNotFoundException, InterruptedException {
-        BufferedReader br = new BufferedReader(new FileReader("/Users/susanabarnwell/Documents/baseballStatsWS/player.json"));
-        PlayerObjectDto player = new Gson().fromJson(br, PlayerObjectDto.class);
-
-        System.out.println("before delay");
-        Thread.sleep(5000);
-        System.out.println("after delay");
-
-        // other api/json call
-        BufferedReader br2 = new BufferedReader(new FileReader("/Users/susanabarnwell/Documents/baseballStatsWS/pitcherProfile.json"));
-        PlayerObjectDto playerProfile = new Gson().fromJson(br2, PlayerObjectDto.class);
-
-//        PlayerObjectDto player = restTemplate.getForObject(pitchMetricsUrl, PlayerObjectDto.class);
+//        BufferedReader br = new BufferedReader(new FileReader("/Users/susanabarnwell/Documents/baseballStatsWS/player.json"));
+//        PlayerObjectDto player = new Gson().fromJson(br, PlayerObjectDto.class);
 //
 //        System.out.println("before delay");
 //        Thread.sleep(5000);
 //        System.out.println("after delay");
 //
 //        // other api/json call
-//        PlayerObjectDto playerProfile = restTemplate.getForObject(profileUrl, PlayerObjectDto.class);
+//        BufferedReader br2 = new BufferedReader(new FileReader("/Users/susanabarnwell/Documents/baseballStatsWS/pitcherProfile.json"));
+//        PlayerObjectDto playerProfile = new Gson().fromJson(br2, PlayerObjectDto.class);
+
+        PlayerObjectDto player = restTemplate.getForObject(pitchMetricsUrl, PlayerObjectDto.class);
+
+        System.out.println("before delay");
+        Thread.sleep(5000);
+        System.out.println("after delay");
+
+        // other api/json call
+        PlayerObjectDto playerProfile = restTemplate.getForObject(profileUrl, PlayerObjectDto.class);
 
         PitcherDataDto pitcherDataDto = new PitcherDataDto();
         List<SeasonDto> seasonDtos = getSeasonList(player, year, mlbSeason);
@@ -66,10 +66,10 @@ public class PlayerService {
     }
 
     public HitterDataDto getHitterData(String profileUrl, String year, String mlbSeason, String opponentId) throws FileNotFoundException, InterruptedException {
-        BufferedReader br = new BufferedReader(new FileReader("/Users/susanabarnwell/Documents/baseballStatsWS/playerProfileJson.json"));
-        PlayerObjectDto player = new Gson().fromJson(br, PlayerObjectDto.class);
+//        BufferedReader br = new BufferedReader(new FileReader("/Users/susanabarnwell/Documents/baseballStatsWS/playerProfileJson.json"));
+//        PlayerObjectDto player = new Gson().fromJson(br, PlayerObjectDto.class);
 
-//        PlayerObjectDto player = restTemplate.getForObject(profileUrl, PlayerObjectDto.class);
+        PlayerObjectDto player = restTemplate.getForObject(profileUrl, PlayerObjectDto.class);
 
         HitterDataDto hitterDataDto = new HitterDataDto();
         List<SeasonDto> seasonDtos = getSeasonList(player, year, mlbSeason);
@@ -107,6 +107,7 @@ public class PlayerService {
         hitterDataDto.setStrikeoutsSwinging(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getKswing());
         hitterDataDto.setStrikesSwinging(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOutcome().getKswing());
         hitterDataDto.setWalks(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getBb());
+        hitterDataDto.setIntentionalWalks(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getIbb());
         hitterDataDto.setWalksPerPlateAppearance(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getBbpa());
         hitterDataDto.setAtBats(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getAb());
         hitterDataDto.setHits(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getH());
@@ -127,7 +128,7 @@ public class PlayerService {
     public String getLinkFromBrooksBaseball(String fullName, String lastName, String year) {
         List<MlbPlayer> player = null;
         String playerId = null;
-        String mlbUrl = "https://statsapi.mlb.com/api/v1/sports/1/players?fields=people,fullName,lastName,nameSlug";
+        String mlbUrl = "https://statsapi.mlb.com/api/v1/sports/1/players?fields=people,fullName,lastName,nameSlug&season=2020";
         MlbPeople mlbPeople = restTemplate.getForObject(mlbUrl, MlbPeople.class);
 
         if (mlbPeople != null) {
