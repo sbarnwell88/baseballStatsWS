@@ -51,4 +51,10 @@ public class TeamsController {
 
         return ResponseEntity.ok().body(players);
     }
+
+    @GetMapping(value = "/healthCheck")
+    public ResponseEntity<?> healthCheck() {
+
+        return ResponseEntity.ok().body("App is up and running!");
+    }
 }
