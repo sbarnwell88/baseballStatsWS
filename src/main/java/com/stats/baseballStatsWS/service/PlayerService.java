@@ -76,45 +76,47 @@ public class PlayerService {
         List<SeasonDto> hitterProfileSeasons = getSeasonList(player, year, mlbSeason);
 
         hitterDataDto.setName(player.getPlayer().getFull_name());
-        hitterDataDto.setRisp(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getHit_risp()/seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getAb_risp());
-        hitterDataDto.setAvg(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getAvg());
-        hitterDataDto.setHr(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getHr());
-        hitterDataDto.setRbi2Out(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getRbi_2out());
-        hitterDataDto.setLeftOnBase(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getLob());
-        hitterDataDto.setRbi(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getRbi());
-        hitterDataDto.setExtraBaseHit(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getXbh());
-        hitterDataDto.setLobRisp2Out(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getLob_risp_2out());
-        hitterDataDto.setPitcher_hand(seasonDtos.get(0).getTotals().getSplits().getHitting().getOverall().get(0).getPitcher_hand());
-        hitterDataDto.setMonths(seasonDtos.get(0).getTotals().getSplits().getHitting().getOverall().get(0).getMonth());
-        hitterDataDto.setHomeAway(seasonDtos.get(0).getTotals().getSplits().getHitting().getOverall().get(0).getHome_away());
-        hitterDataDto.setFlyOuts(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getFo());
-        hitterDataDto.setFlyOutsIntoDoublePlays(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getFidp());
-        hitterDataDto.setFlyBalls(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getFlyball());
-        hitterDataDto.setGroundBall(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getGroundball());
-        hitterDataDto.setGroundOuts(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getGo());
-        hitterDataDto.setGroundedIntoDoublePlay(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getGidp());
-        hitterDataDto.setHitsWithRisp(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getHit_risp());
-        hitterDataDto.setIsolatedPower(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getIso());
-        hitterDataDto.setLineDrive(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getLinedrive());
-        hitterDataDto.setLineOut(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getLo());
-        hitterDataDto.setLineOutsIntoDoublePlay(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getLidp());
-        hitterDataDto.setOnBasePercentage(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getObp());
-        hitterDataDto.setPopOuts(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getPo());
-        hitterDataDto.setPopUps(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getPopup());
-        hitterDataDto.setSluggingPercentage(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getSlg());
-        hitterDataDto.setStrikeoutsLooking(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getKlook());
-        hitterDataDto.setStrikesLooking(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOutcome().getKlook());
-        hitterDataDto.setStrikeoutsSwinging(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getKswing());
-        hitterDataDto.setStrikesSwinging(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOutcome().getKswing());
-        hitterDataDto.setWalks(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getBb());
-        hitterDataDto.setIntentionalWalks(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getIbb());
-        hitterDataDto.setWalksPerPlateAppearance(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getBbpa());
-        hitterDataDto.setAtBats(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getAb());
-        hitterDataDto.setHits(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getH());
-        hitterDataDto.setDoubles(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getD());
-        hitterDataDto.setTriples(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getT());
+        if (seasonDtos.size() > 0) {
+            hitterDataDto.setRisp(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getHit_risp() / seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getAb_risp());
+            hitterDataDto.setAvg(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getAvg());
+            hitterDataDto.setHr(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getHr());
+            hitterDataDto.setRbi2Out(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getRbi_2out());
+            hitterDataDto.setLeftOnBase(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getLob());
+            hitterDataDto.setRbi(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getRbi());
+            hitterDataDto.setExtraBaseHit(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getXbh());
+            hitterDataDto.setLobRisp2Out(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getLob_risp_2out());
+            hitterDataDto.setPitcher_hand(seasonDtos.get(0).getTotals().getSplits().getHitting().getOverall().get(0).getPitcher_hand());
+            hitterDataDto.setMonths(seasonDtos.get(0).getTotals().getSplits().getHitting().getOverall().get(0).getMonth());
+            hitterDataDto.setHomeAway(seasonDtos.get(0).getTotals().getSplits().getHitting().getOverall().get(0).getHome_away());
+            hitterDataDto.setFlyOuts(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getFo());
+            hitterDataDto.setFlyOutsIntoDoublePlays(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getFidp());
+            hitterDataDto.setFlyBalls(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getFlyball());
+            hitterDataDto.setGroundBall(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getGroundball());
+            hitterDataDto.setGroundOuts(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getGo());
+            hitterDataDto.setGroundedIntoDoublePlay(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getGidp());
+            hitterDataDto.setHitsWithRisp(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getHit_risp());
+            hitterDataDto.setIsolatedPower(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getIso());
+            hitterDataDto.setLineDrive(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getLinedrive());
+            hitterDataDto.setLineOut(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getLo());
+            hitterDataDto.setLineOutsIntoDoublePlay(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getLidp());
+            hitterDataDto.setOnBasePercentage(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getObp());
+            hitterDataDto.setPopOuts(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getPo());
+            hitterDataDto.setPopUps(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getPopup());
+            hitterDataDto.setSluggingPercentage(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getSlg());
+            hitterDataDto.setStrikeoutsLooking(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getKlook());
+            hitterDataDto.setStrikesLooking(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOutcome().getKlook());
+            hitterDataDto.setStrikeoutsSwinging(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOuts().getKswing());
+            hitterDataDto.setStrikesSwinging(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOutcome().getKswing());
+            hitterDataDto.setWalks(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getBb());
+            hitterDataDto.setIntentionalWalks(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getIbb());
+            hitterDataDto.setWalksPerPlateAppearance(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getBbpa());
+            hitterDataDto.setAtBats(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getAb());
+            hitterDataDto.setHits(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getH());
+            hitterDataDto.setDoubles(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getD());
+            hitterDataDto.setTriples(seasonDtos.get(0).getTotals().getStatistics().getHitting().getOverall().getOnbase().getT());
+        }
 
-        if (opponentId != null && !Objects.equals(opponentId, "null")) {
+        if (opponentId != null && !Objects.equals(opponentId, "null") && hitterProfileSeasons.size() > 0) {
             hitterDataDto.setOpponentStats(getOpponentStats(hitterProfileSeasons.get(0).getTotals().getSplits().getHitting().getOverall().get(0).getOpponent(), opponentId));
             if (hitterDataDto.getOpponentStats().size() > 0) {
                 hitterDataDto.setOpponentName(hitterDataDto.getOpponentStats().get(0).getName());
